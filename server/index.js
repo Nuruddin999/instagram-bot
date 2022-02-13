@@ -1,16 +1,18 @@
 const express = require("express");
 const BotClient = require("./Bot");
 var cors = require('cors')
+const fs = require("fs")
 const user = require("./routes/user");
 const last_accaunts = require("./routes/last_accaunt")
 const speaker = require("./routes/speaker")
+const forDirect = require("./routes/for_direct_user")
 const app = express();
 const ig = new BotClient() //класс сторонней библиотеки
 const log = async () => {
     await ig.login()
+    await ig.unfollowFromListUsers()
 }
 log()
-
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -22,6 +24,7 @@ app.use(express.json());
 app.use("/users", user);
 app.use("/last_accounts", last_accaunts)
 app.use("/speakers", speaker)
+app.use("/fordirect", forDirect)
 app.get("/", function (request, response) {
     ig.ig.account.currentUser().then(r => response.send(r.username))
 

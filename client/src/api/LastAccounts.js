@@ -1,5 +1,6 @@
 import {constants} from "../constants/constants";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function (instance) {
     return {
         async getLastAccaunts() {

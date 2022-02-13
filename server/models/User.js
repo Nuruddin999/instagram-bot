@@ -1,7 +1,6 @@
 const { Sequelize } = require("sequelize");
-const accauntname=require("../constants")
 module.exports = (sequelize, DataTypes) => {
-    return sequelize.define(`User_${accauntname.ACCAUNTS}`, {
+    return sequelize.define(`User`, {
         pk: {
             type: DataTypes.STRING,
             allowNull: false,

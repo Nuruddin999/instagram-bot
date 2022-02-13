@@ -55,12 +55,12 @@ function DirectPage() {
     const state = useSelector(state => state.data);
     useEffect(() => {
         //  dispatch(readSpeakersFromDb());
-        dispatch(getCurrentIndex("currentDirectIndex"))
+        //  dispatch(getCurrentIndex("currentDirectIndex"))
     }, [])
     return (
         <div className={styles.subscribe}>
             <Typography variant="h5" color="primary">
-                Сбор комментаторов и их сохранение
+               Рассылка сообщениий в  direct
             </Typography>
             <Box>
                 {
