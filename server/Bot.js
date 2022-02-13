@@ -29,7 +29,7 @@ module.exports = class BotClient {
             this.ig.state.generateDevice("nozhi");
             await this.ig.simulate.preLoginFlow();
             Bluebird.try(async () => {
-                const auth = await this.ig.account.login("nozhi999", "nurnozhhh999");
+                const auth = await this.ig.account.login("", "");
                 const cookieJar = await this.ig.state.serializeCookieJar()
                 fs.writeFileSync("cookies.json", JSON.stringify(cookieJar), 'utf-8')
                 let device = (({ deviceString, deviceId, uuid, adid, build }) => ({ deviceString, deviceId, uuid, adid, build }))(this.ig.state)
